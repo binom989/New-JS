@@ -1,39 +1,29 @@
-//"use strict";  // используем современный режим скрипта
+"use strict";
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function() {   // создаем свой метод
-        console.log("Test");   
+let str = "some";
+let strObj = new String(str);
+
+console.log(typeof(str));
+console.log(typeof(strObj));
+
+
+//
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log("Hello");
     }
 };
+const jonh = Object.create(soldier);  // создание обьекта от протатипа 
 
-options.makeTest();
+//const jonh = {
+//    health: 100
+//};
 
-const {border, bg} = options.colors;  // деструктуризация, извлечение свойств
-console.log("border"); 
+//  jonh.__proto__ = soldier;  старый метод
 
+// Object.setPrototypeOf(jonh, soldier);  // установили протатип от солдата
 
-// console.log(Object.keys(options).length); //подсчет свойств обьекта
-
-
-console.log(options.name);
-let counter = 0;
-for (let key in options) {
-    if (typeof(options[key]) === 'object') {
-            for (let i in options[key]) {
-                console.log(`свойство ${i} имеет значение ${options[key][i]}`);
-                counter++;
-            } 
-    } else {
-            console.log(`свойство ${key} имеет значение ${options[key]}`);
-            counter++;  
-        }
-}
-
-console.log(counter);
+console.log(jonh.armor);  
+jonh.sayHello();  // установили протатип от солдата
