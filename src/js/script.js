@@ -20,3 +20,5 @@ const arr = [1, 14, 4, 30, 54],
     }
 
 console.log(sorted);
+
+console.log([] +1 + 2);  //=12
